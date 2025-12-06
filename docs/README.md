@@ -83,18 +83,17 @@ cp .env.example .env
 php artisan key:generate
 ```
 
-### 4. Migrasi database
+### 4. Migrasi dan seed (data yang aku buat) database
 ```bash
-php artisan migrate --seed
+php artisan migrate:fresh --seed      
 ```
-
 Kode akan beri notif untuk download database sqlite, tulis yes
 
 ### 5. Jalankan server
 ```bash
 php artisan serve
 ```
-** ATAU dijalankan lokal.. **
+** ATAU dijalankan lokal..**
 ```bash
 php artisan serve --host=192.168.1.x --port=8000 
 ```
