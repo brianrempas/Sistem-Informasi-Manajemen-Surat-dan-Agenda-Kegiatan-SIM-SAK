@@ -53,8 +53,8 @@
                     <x-table-sortable-header label="Kategori" sortField="kategori_id" />
                     <x-table-sortable-header label="Status" sortField="status" />
                     <th class="p-3">Isi Ringkas</th>
+                    <th class="p-3">Lampiran</th>
                     @if(auth()->user()->role === 'admin' || auth()->user()->role === 'staff')
-                        <th class="p-3">Lampiran</th>
                         <th class="p-3 w-24 text-center">Aksi</th>
                     @endif
                 </tr>
@@ -73,18 +73,18 @@
                             <span class="px-2 py-1 rounded text-xs bg-gray-100">{{ $item->status ?? 'draft' }}</span>
                         </td>
                         <td class="p-3 max-w-xs break-words">{{ Str::limit($item->isi_ringkas, 50) ?? '-' }}</td>
-                        @if(auth()->user()->role === 'admin' || auth()->user()->role === 'staff')
-                            <td class="p-3">
-                                @if ($item->lampiran_file)
-                                    <a href="{{ asset('storage/' . $item->lampiran_file) }}" target="_blank"
-                                        class="text-indigo-600 underline">
-                                        Lihat
-                                    </a>
-                                @else
-                                    -
-                                @endif
-                            </td>
 
+                        <td class="p-3">
+                            @if ($item->lampiran_file)
+                                <a href="{{ asset('storage/' . $item->lampiran_file) }}" target="_blank"
+                                    class="text-indigo-600 underline">
+                                    Lihat
+                                </a>
+                            @else
+                                -
+                            @endif
+                        </td>
+                        @if(auth()->user()->role === 'admin' || auth()->user()->role === 'staff')
                             <td class="p-3 flex gap-2 justify-center">
                                 <a href="{{ route('surat-keluar.edit', $item) }}" class="text-yellow-600">Edit</a>
                                 <form action="{{ route('surat-keluar.destroy', $item) }}" method="POST"

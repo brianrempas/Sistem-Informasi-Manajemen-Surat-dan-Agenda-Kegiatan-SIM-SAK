@@ -10,15 +10,14 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             UserSeeder::class,
-            /*
             JenisAgendasTableSeeder::class,
             KategoriSuratsTableSeeder::class,
             SuratMasuksTableSeeder::class,
             SuratKeluarsTableSeeder::class,
             AgendaKegiatansTableSeeder::class,
-            */
         ]);
 
+        /*
         $users = \App\Models\User::all();
 
         // Seed parent tables first
@@ -59,5 +58,6 @@ class DatabaseSeeder extends Seeder
                 return $users->random()->id;
             },
         ]);
+        */
     }
 }

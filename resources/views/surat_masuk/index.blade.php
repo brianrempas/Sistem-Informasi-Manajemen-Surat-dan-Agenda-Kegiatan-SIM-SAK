@@ -50,9 +50,7 @@
                     <x-table-sortable-header label="Perihal" sortField="perihal" />
                     <x-table-sortable-header label="Kategori" sortField="kategori_id" />
                     <x-table-sortable-header label="Isi Ringkas" sortField="isi_ringkas" />
-                    @if(auth()->user()->role === 'admin' || auth()->user()->role === 'staff')
-                        <x-table-sortable-header label="Lampiran" sortField="lampiran_file" />
-                    @endif
+                    <x-table-sortable-header label="Lampiran" sortField="lampiran_file" />
                     <x-table-sortable-header label="Tanggal Surat" sortField="tanggal_surat" />
                     <x-table-sortable-header label="Tanggal Diterima" sortField="tanggal_diterima" />
                     <x-table-sortable-header label="Status Disposisi" sortField="status_disposisi" />
@@ -72,18 +70,16 @@
                         <td class="p-3 break-words">{{ e($item->perihal) }}</td>
                         <td class="p-3 break-words">{{ $item->kategori->nama_kategori ?? '-' }}</td>
                         <td class="p-3 break-words">{{ Str::limit($item->isi_ringkas, 40) }}</td>
-                        @if(auth()->user()->role === 'admin' || auth()->user()->role === 'staff')
-                            <td class="p-3">
-                                @if ($item->lampiran_file)
-                                    <a href="{{ asset('storage/' . $item->lampiran_file) }}" target="_blank"
-                                        class="text-blue-600 hover:underline">
-                                        Lihat
-                                    </a>
-                                @else
-                                    <span class="text-gray-400">-</span>
-                                @endif
-                            </td>
-                        @endif
+                        <td class="p-3">
+                            @if ($item->lampiran_file)
+                                <a href="{{ asset('storage/' . $item->lampiran_file) }}" target="_blank"
+                                    class="text-blue-600 hover:underline">
+                                    Lihat
+                                </a>
+                            @else
+                                <span class="text-gray-400">-</span>
+                            @endif
+                        </td>
                         <td class="p-3">{{ $item->tanggal_surat }}</td>
                         <td class="p-3">{{ $item->tanggal_diterima }}</td>
                         <td class="p-3">

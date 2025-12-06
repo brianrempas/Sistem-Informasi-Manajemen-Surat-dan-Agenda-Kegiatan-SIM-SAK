@@ -14,7 +14,7 @@ class UserSeeder extends Seeder
             'name' => 'Brian Salomo Rempas',
             'email' => 'brianrempas@gmail.com',
             'email_verified_at' => now(),
-            'password' => Hash::make('123'),
+            'password' => Hash::make('123456'),
             'role' => 'admin',
             'remember_token' => null
         ]);
@@ -23,8 +23,17 @@ class UserSeeder extends Seeder
             'name' => 'Aditya Supraja',
             'email' => 'adit@gmail.com',
             'email_verified_at' => now(),
-            'password' => Hash::make('123'),
+            'password' => Hash::make('123456'),
             'role' => 'staff',
+            'remember_token' => null
+        ]);
+
+        User::create([
+            'name' => 'Puspita Sari',
+            'email' => 'pusat@gmail.com',
+            'email_verified_at' => now(),
+            'password' => Hash::make('123456'),
+            'role' => 'user',
             'remember_token' => null
         ]);
     }
