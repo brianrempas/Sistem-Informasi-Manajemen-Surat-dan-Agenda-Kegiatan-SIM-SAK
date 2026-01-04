@@ -77,10 +77,13 @@ cd Sistem-Informasi-Manajemen-Surat-dan-Agenda-Kegiatan-SIM-SAK
 composer install
 npm install
 ```
-### 3. Setup environment
+### 3. Setup environment dan database (sqlite)
 ```bash
 cp .env.example .env
 php artisan key:generate
+cd database
+type nul > database.sqlite
+cd ..
 ```
 
 ### 4. Migrasi dan seed (data yang aku buat) database
